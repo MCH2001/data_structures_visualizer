@@ -1,19 +1,48 @@
+<!-- templates/array.html -->
 {% extends "base.html" %}
 
-{% block title %} Array - Data Structures Visualizer {% endblock %}
-
 {% block content %}
-  <h1>Array</h1>
-  <p>A collection of similar data elements stored at contiguous memory locations.</p>
+<h1>Array Operations</h1>
+<div class="array-container">
+    <div id="array"></div>
+</div>
 
-  <div id="array-visualization">
-    
+<div class="controls">
+    <input type="text" id="value" placeholder="Enter a value">
+    <button onclick="push()">Push</button>
+    <button onclick="pop()">Pop</button>
+    <button onclick="clearArray()">Clear</button>
+    <button onclick="BubbleSort()">Bubble sort</button>
+</div>
 
-  </div>
-  
-  <button onclick="addElement()">Add Element</button>
-    <button onclick="removeElement()">Remove Element</button>
-    <button onclick="searchElement()">Search Element</button>
+<script>
+    let array = [];
 
+    function renderArray() {
+        const arrayContainer = document.getElementById('array');
+        arrayContainer.innerHTML = '';
+        array.forEach((value, index) =>{
+            const element = document.createElement('div');
+            element.textContent = value;
+            arrayContainer.appendChild(element);
+        });
+    }
 
+    function push() {
+        
+
+    }
+
+    function pop() {
+
+    }
+
+    function clearArray() {
+
+    }
+
+    // Initial render
+    renderArray();
+</script>
 {% endblock %}
+

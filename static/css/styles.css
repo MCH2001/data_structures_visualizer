@@ -64,3 +64,83 @@ footer p {
   margin: 0;
   color: #999;
 }
+
+.ListDS a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+  font-size: large;
+}
+
+.ListDS a:hover {
+  color: #bb86fc;
+}
+
+.ListDS{ padding-left: 50px; }
+.liListDS{ 
+  color: #d2fff2; 
+  padding-left: 16px;
+  margin-top: 24px;
+  position: relative;
+  font-size: 16px;
+  line-height: 20px;
+
+}
+
+
+
+/* Additional styles for array operations */
+
+.array-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+#array {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#array div {
+  background-color: #bb86fc;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #121212;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.controls input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+.controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #bb86fc;
+  border: none;
+  border-radius: 5px;
+  color: #121212;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #9b61ff;
+}
