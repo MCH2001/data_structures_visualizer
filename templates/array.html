@@ -1,4 +1,4 @@
-<!-- templates/array.html -->
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -13,36 +13,92 @@
     <button onclick="pop()">Pop</button>
     <button onclick="clearArray()">Clear</button>
     <button onclick="BubbleSort()">Bubble sort</button>
+    <button onclick="SelectionSort()">Selection Sort</button>
+    <button onclick="InsertionSort()">Insertion Sort</button>
+    <button onclick="MergeSort()">MergeSort</button>
+    <button onclick="AddingData()">Add random data</button>
 </div>
 
 <script>
     let array = [];
 
-    function renderArray() {
+    function renderArray(HighlightIndex = -1) {
         const arrayContainer = document.getElementById('array');
         arrayContainer.innerHTML = '';
         array.forEach((value, index) =>{
             const element = document.createElement('div');
             element.textContent = value;
+            element.style.backgroundColor = (index === HighlightIndex) ? '#ff5722' : '#bb86fc'; 
             arrayContainer.appendChild(element);
         });
+
     }
 
     function push() {
-        
-
+        const value = document.getElementById('value').value;
+        if (value !== '') {
+            array.push(parseInt(value));
+            document.getElementById('value').value = '';
+            renderArray();
+        } else {
+            alert("Please enter a value.");
+        }
     }
 
     function pop() {
-
+        if (array.length > 0) {
+            array.pop();
+            renderArray();
+        }
     }
 
     function clearArray() {
+        array = [];
+        renderArray();
+    }
+
+   async function BubbleSort(){
+        for(let i = 0; i < array.length-1; i++){
+            for(let j = 0; j < array.length-1; j++){
+                renderArray(j);
+                await new Promise(resolve => setTimeout(resolve, 500));
+                    
+                if (array[j] > array[j+1]){
+                    let temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                    renderArray(j+1);
+                }
+            }
+        }
 
     }
 
-    // Initial render
-    renderArray();
+    async function SelectionSort() {
+
+        for(let i = 0; i < array.length-1; i++){
+            let minCandidate = array[i];
+            let minCandidatePosition = i;
+
+            for(let j = i+1; j < array.length; j++){
+                renderArray(j);
+                await new Promise(resolve => setTimeout(resolve, 900));
+                  
+                if (array[j] < minCandidate){
+                    minCandidate = array[j];
+                    minCandidatePosition = j;
+                }
+            }
+            let temp = array[i];
+            array[i] = array[minCandidatePosition];
+            array[minCandidatePosition]=temp;
+                        
+            renderArray(i);
+            await new Promise(resolve => setTimeout(resolve, 900));
+        }
+        renderArray();
+    }
+
 </script>
 {% endblock %}
 
